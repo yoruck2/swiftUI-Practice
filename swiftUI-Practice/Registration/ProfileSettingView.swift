@@ -19,35 +19,34 @@ struct ProfileSettingView: View {
                 .padding()
                 .navigationTitle("PROFILE SETTING")
                 .navigationBarTitleDisplayMode(.inline)
-//                .navigationBarItems(leading: BackButton())
+                .navigationBarItems(leading: BackButton())
             
             TextField("닉네임을 입력해주세요 :)", text: $nickname)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(EdgeInsets(top: 50, leading: 20, bottom: 50, trailing: 20))
-            
-            VStack(alignment: .leading, spacing: 10) {
+            HStack {
                 Text("MBTI")
                     .font(.system(size: 20, weight: .bold))
                     .padding(.horizontal)
-                
-                
-                ForEach(0..<2) { row in
-                    HStack(spacing: 20) {
-                        ForEach(0..<4) { col in
-                            MBTIButton(option: mbtiOptions[col][row], isSelected: isSelected(mbtiOptions[col][row])) {
-                                toggleMBTI(mbtiOptions[col][row])
+                VStack {
+                    ForEach(0..<2) { row in
+                        HStack(spacing: 20) {
+                            ForEach(0..<4) { col in
+                                MBTIButton(option: mbtiOptions[col][row], isSelected: isSelected(mbtiOptions[col][row])) {
+                                    toggleMBTI(mbtiOptions[col][row])
+                                }
                             }
                         }
                     }
+                    .padding(.horizontal)
                 }
                 
-                .padding(.horizontal)
             }
         }.padding(EdgeInsets())
         
         Spacer()
         
-        NavigationLink(destination: SwiftUIView()) {
+        NavigationLink(destination: ProfileSettingView()) {
             Text("완료")
                 .font(.system(size: 20,weight: .bold))
                 .padding(15)
@@ -75,7 +74,6 @@ struct ProfileSettingView: View {
             }
         }
     }
-    
     private func isSelected(_ option: String) -> Bool {
         return selectedMBTI.values.contains(option)
     }
@@ -130,18 +128,18 @@ struct ProfilePictureView: View {
     }
 }
 
-//struct BackButton: View {
-//    @Environment(\.presentationMode) var presentationMode
-//    
-//    var body: some View {
-//        Button(action: {
-//            self.presentationMode.wrappedValue.dismiss()
-//        }) {
-//            Image(systemName: "chevron.left")
-//                .foregroundColor(.black)
-//        }
-//    }
-//}
+struct BackButton: View {
+    @Environment(\.presentationMode) var presentationMode
+    
+    var body: some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            Image(systemName: "chevron.left")
+                .foregroundColor(.black)
+        }
+    }
+}
 //struct ProfilePictureView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        ProfilePictureView()
