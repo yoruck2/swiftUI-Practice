@@ -7,12 +7,18 @@
 
 import SwiftUI
 
-struct CoinDetailView: View {
+struct UpbitDetailView: View {
+    
+    var market: Market
+    
+    init(market: Market) {
+        self.market = market
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(market.englishName)
     }
 }
-
 #Preview {
-    CoinDetailView()
+    UpbitDetailView(market: Market(market: "test", koreanName: "test", englishName: "test"))
 }
