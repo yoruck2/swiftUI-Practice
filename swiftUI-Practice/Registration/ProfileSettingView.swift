@@ -21,9 +21,15 @@ struct ProfileSettingView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading: BackButton())
             
-            TextField("닉네임을 입력해주세요 :)", text: $nickname)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("닉네임을 입력해주세요 😆", text: $nickname)
                 .padding(EdgeInsets(top: 50, leading: 20, bottom: 50, trailing: 20))
+                .overlay(alignment: .center) {
+                    Divider()
+                        .frame(height: 1)
+                        .overlay(Color(uiColor: UIColor.systemGray2))
+                        .padding(.horizontal)
+                        .offset(y: 15)
+                }
             HStack {
                 Text("MBTI")
                     .font(.system(size: 20, weight: .bold))
@@ -142,7 +148,7 @@ struct BackButton: View {
 }
 //struct ProfilePictureView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ProfilePictureView()
+//        OnboardingView()
 //    }
 //}
-
+//

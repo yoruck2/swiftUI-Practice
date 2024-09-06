@@ -24,7 +24,7 @@ struct CoinAPI {
                     completion(decodedData)
                 }
             } catch {
-                print(error)
+//                print(error)
             }
         }.resume()
     }

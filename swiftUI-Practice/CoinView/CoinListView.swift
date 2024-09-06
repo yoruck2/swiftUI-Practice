@@ -49,7 +49,7 @@ struct CoinListView: View {
     
     func listView() -> some View {
         LazyVStack {
-            ForEach(filteredMarkets, id: \.id){ market in
+            ForEach(filteredMarkets, id: \.id) { market in
                 NavigationLink {
                     UpbitDetailView(market: market)
                 } label: {
