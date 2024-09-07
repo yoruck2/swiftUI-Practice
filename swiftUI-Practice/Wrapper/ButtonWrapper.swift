@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CapsuleButtonWrapper: ViewModifier {
+struct ButtonWrapper: ViewModifier {
     
     let action: () -> Void
     
@@ -20,7 +20,7 @@ struct CapsuleButtonWrapper: ViewModifier {
 
 extension View {
     func wrapToButton(action: @escaping () -> Void) -> some View {
-        modifier(CapsuleButtonWrapper(action: action))
+        modifier(ButtonWrapper(action: action))
 //            .padding(.horizontal)
     }
 }

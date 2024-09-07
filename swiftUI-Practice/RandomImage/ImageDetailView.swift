@@ -13,12 +13,14 @@ struct ImageDetailView: View {
     @Binding var sectionName: String
     
     var body: some View {
-        image
-            .clipShape(RoundedRectangle(cornerRadius: 15))
-            .frame(width: 300, height: 400)
-        
-        TextField("섹션 이름을 입력해주세요", text: $sectionName)
-            .padding()
+        VStack(alignment: .center) {
+            image
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+                .frame(width: 300, height: 400)
+            
+            TextField("섹션 이름을 입력해주세요", text: $sectionName)
+                .padding(.horizontal)
+        }
     }
 }
 

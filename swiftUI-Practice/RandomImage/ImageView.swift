@@ -28,7 +28,7 @@ struct ImageView: View {
                     image
                         .frame(width: 160, height: 220)
                         .clipShape(RoundedRectangle(cornerRadius: 15))
-                        .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: -10))
+                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 5))
                 }
             case .failure(_):
                 Image(systemName:  "photo.fill")
